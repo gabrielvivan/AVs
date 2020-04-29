@@ -25,7 +25,7 @@ The goals of this project are the following:
 
 My pipeline consisted of 6 steps. First, I converted the images to grayscale, then I applied Gaussian blur with kernel size of 5. Next, function Canny was applied, with a low and high thresholds of 40 and 120, respectively. The vertices for the region of interest were then specified, and the image was masked. Then, a Hough transform was applied to detect lines, with the following parameters:
 
-`rho = 2  (distance resolution in pixels of the Hough grid)
+`rho = 2  (distance resolution in pixels of the Hough grid)`
 
 theta = pi/180 (angular resolution in radians of the Hough grid)
 
