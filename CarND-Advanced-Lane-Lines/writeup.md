@@ -149,9 +149,11 @@ I implemented this step by using the function `post_processing()`, in which an `
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Provide a link to your final video output.  
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](https://www.youtube.com/watch?v=AVA-baQtw-A)
+
+The video was too large to be uploaded to this repository, therefore it is available as an unlisted video on YouTube on the link above.
 
 ---
 
