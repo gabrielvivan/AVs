@@ -21,10 +21,10 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/binary_warped.png "Binary Example"
 [image4]: ./output_images/roi.png "Warp Example"
 [image5]: ./output_images/sliding_window.png "Fit Visual"
-[image6]: ./output_images/new_search "Search areas"
-[image7]: ./output_images/test2_result "Test 2 output"
-[image8]: ./output_images/test4_result "Test 4 output"
-[image9]: ./output_images/test5_result "Test 5 output"
+[image6]: ./output_images/new_search.png "Search areas"
+[image7]: ./output_images/test2_result.png "Test 2 output"
+[image8]: ./output_images/test4_result.png "Test 4 output"
+[image9]: ./output_images/test5_result.png "Test 5 output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
