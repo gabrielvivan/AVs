@@ -25,7 +25,6 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/test2_result.png "Test 2 output"
 [image8]: ./output_images/test4_result.png "Test 4 output"
 [image9]: ./output_images/test5_result.png "Test 5 output"
-[video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -161,4 +160,8 @@ The video was too large to be uploaded to this repository, therefore it is avail
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+In brief, I took the approach that was suggested from the videos and lessons that I had watched before this project. However, one major difference was that I did not use a "Class" in my pipeline. Therefore, it was much harder to keep track of the variables being calculated at each iteration/frame, such as the polynomials coefficients, radius of curvature, etc. I eventually found a way to work around it, by updating variables using different names, and calling the functions multiple times. This is clearly not ideal, and I would definitely try to use a Class in the future. 
+
+In addition, for one brief moment in the video, the algorithm seemed to miss the lanes (with color or lighting change). I believe that getting a bad polynomial fit would break the pipeline, as the search area would be over an incorrect area. In order to make it more robust, the sliding window method could be applied again in the case the `search_around_poly()` function fails.
+
+Other than that, the pipeline seems to work as expected, and I am satisfied with the results.
