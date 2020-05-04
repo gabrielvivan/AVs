@@ -20,4 +20,4 @@ The goals / steps of this project are the following:
 
 The images for camera calibration are stored in the folder called `camera_cal`.  The images in `test_images` are for testing the pipeline on single frames.  
 
-Examples of the output from each stage of the pipeline are save in the folder called `output_images`. The video called `project_video.mp4` is the video with which the pipeline was tested on. The final output of the pipeline is saved in the folder `output_images` and is named `project_video_output.avi`
+Examples of the output from each stage of the pipeline are save in the folder called `output_images`. The video called `project_video.mp4` is the video with which the pipeline was tested on. The final output of the pipeline can be found on this [link](https://www.youtube.com/watch?v=AVA-baQtw-A)
