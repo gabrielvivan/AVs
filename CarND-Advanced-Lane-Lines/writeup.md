@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./output_images/cam_undistort.png "Undistorted"
-[image2]: ./output_images/undistort.png "Road Transformed"
+[image2]: ./output_images/undistorted.png "Road Transformed"
 [image3]: ./output_images/binary_warped.png "Binary Example"
 [image4]: ./output_images/roi.png "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
