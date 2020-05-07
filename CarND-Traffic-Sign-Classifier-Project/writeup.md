@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [image2]: ./examples/preprocessed.png "Preprocessing"
 [image3]: ./examples/CNN.png "LeNet architecture"
 [image4]: ./examples/CNN2.png "AlexNet architecture"
-[image5]: ./examples/end_limits.jpg "Traffic Sign 1"
+[image5]: ./examples/signs.png "Traffic Signs"
 [image6]: ./examples/STOP_sign.jpg "Traffic Sign 2"
 [image7]: ./examples/turn_right.jpg "Traffic Sign 3"
 [image8]: ./examples/road_work.jpg "Traffic Sign 4"
@@ -110,47 +110,77 @@ Then, I had to use more filters for each operation, therefore making the network
 
 Here are five German traffic signs that I found on the web, after being resized for the neural network:
 
-![alt text][image5] ![alt text][image6] ![alt text][image7] 
-![alt text][image8] ![alt text][image9]
+![alt text][image5]
 
-The first image might be difficult to classify because there are a few other signs in the dataset with very similar characteristics
+The first image might be difficult to classify because there are a few other signs in the dataset with very similar characteristics.
 The stop and yield signs should be quite simple to classify, due to its very unique shapes.
 The road work might be one of the most difficult, as many signs have the same shape, with different features inside the "triangle".
 Finally, the turn right only should be relatively simple, with a possibility for mistakes with similar signs, such as "right turn or go ahead".
 
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
+| Image			            |     Prediction	        					            | 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| End of all limits     | End of all limits  									          | 
+| Stop     			        | Stop 										                      |
+| Right turn				    | Right turn											              |
+| Road work	      		  | Road work					 				                    |
+| Yield			            | Yield      							                      |
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares well to the accuracy of the test set.
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability.
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the last cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is not very sure that this is a "end of passing and speed limits (probability of 0.54), but it still guessed it correctly. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| .54         			| End of all speed and passing limits   									| 
+| .23     				| End of no passing 										|
+| .17					| End of speed limit (80km/h)											|
+| .01	      			| Children crossing					 				|
+| .01				    | End of no passing by vehicles over 3.5 metric tons      							|
 
+For the second image, the model was very certain it was a stop sign. The top five soft max probabilities were
 
-For the second image ... 
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .80         			| Stop   									| 
+| .09     				| Keep right 										|
+| .05					| Turn left ahead											|
+| .01	      			| No entry					 				|
+| .01				    | Priority road      							|
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+The model was very confident about guessing the third and fifth images, as expected due to their distinct features. The top five were, respectively
 
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .89         			| Turn right ahead   									| 
+| .03     				| Keep left										|
+| .01					| Go straight or left											|
+| .01	      			| General caution					 				|
+| .01				    | Yield      							|
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .95         			| Yield   									| 
+| .01     				| Ahead only 										|
+| .01					| Right-of-way at the next intersection											|
+| .005	      			| Go straight or left					 				|
+| .003				    | Priority road      							|
+
+Finally, as expected, the network struggled to accurately guess the road work sign, with a confidence of only 29%. However, it was still able to guess it correctly, which confirms the architecture is robust.
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .29         			| Road work   									| 
+| .21     				| Wild animals crossing										|
+| .09					| Dangerous curve to the left											|
+| .09	      			| Double curve					 				|
+| .03				    | Turn right ahead      							|
 
