@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/vizualization.png "Visualization"
 [image2]: ./examples/preprocessed.png "Preprocessing"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
+[image3]: ./examples/CNN.png "LeNet architecture"
+[image4]: ./examples/CNN2.png "AlexNet architecture"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
@@ -71,19 +71,23 @@ Here is an example of a preprocessed image:
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
+| Layer         		      |     Description	        					                 | 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+| Input         		      | 32x32x1 Grayscale image   							             | 
+| Convolution 7x7     	 | 1x1 stride, valid padding, outputs 26x26x13 	 |
+| RELU and dropout			   |	Dropout probability of 0.6											         |
+| Max pooling	         	| 2x2 stride,  outputs 13x13x13 				            |
+| Convolution 4x4	      | 1x1 stride, valid padding, outputs 10x10x26   |
+| RELU and dropout			   |	Dropout probability of 0.6											         |
+| Max pooling	         	| 2x2 stride,  outputs 5x5x26 				              | 
+| Fully connected		     | Inputs 650, outputs 300        									      |
+| Fully connected		     | Inputs 300, outputs 86        								       	|
+| Fully connected		     | Inputs 86, outputs 43        									        |
+| Softmax 				          | Followed by minimizing cross-entropy       			|
 
+The following images are diagrams of the architecture:
+
+![alt text][image3] ![alt text][image4]
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
