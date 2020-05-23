@@ -1,5 +1,26 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
+
+### Project Reflection
+Here's a brief reflection on how the general code was implemented for path planning on a highway.
+The steps and details below are implemented within `main.cpp`
+___
+#### Targetting speed and logic for changing lanes
+
+1. Set initial speed to zero and add increments of 0.448 m/s to each iteration. This prevents the car from performing jerky accelerations, while it still allows for good performance. This was done before the main code iteration, otherwise the reference speed would always reset to 0 on every iteration
+2. Set initial lane starting position to 1 (center lane). Also done before main iteration
+3. I then used the data provided (from sensor fusion) to gather information about cars that were within 30m of the ego vehicle in all lanes. This can be seen on `lines 138-172`
+4. Next, if the vehicle closely approaches another vehicle in front of it, with a tolerance of about 30 meters, it sets the flag `too_close=true`. When that is the case, a logic is implemented, so that the ego vehicle matches its speed to the vehicle in the front, and then it assesses whether it is appropriate to change lanes according to specified tolerances. This is done on `lines 198-224`
+
+___
+#### Getting x,y points
+1. Most of this operation is done based on the implementation given by Aaron on the video lecture. This code starts on `line 227`
+2. First, we check if there are previous data points and assign the last to points to a vector. The algorithm then evaluates how many points from previous trajectory is added to this vector. See `lines 227-265`
+3. Next, we obtain more data points to be used with the spline function at 30m, 60m, and 90m ahead of the vehicle. See `lines 267-279`. 
+4. Transform these data points into a local car coordinate and fit into spline function on `lines 281-296`
+5. Push back to vector the next 50 values for the trajectory on `lines 298-332`.
+6. Transform the values back to map coordinates, and fill remaining values to the `next_x_vals` and `next_y_vals` vectors.
+7. Transmit message to simulator
    
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
@@ -91,55 +112,3 @@ A really helpful resource for doing this project and creating smooth trajectorie
     cd uWebSockets
     git checkout e94b6e1
     ```
-
-## Editor Settings
-
-We've purposefully kept editor configuration files out of this repo in order to
-keep it as simple and environment agnostic as possible. However, we recommend
-using the following settings:
-
-* indent using spaces
-* set tab width to 2 spaces (keeps the matrices in source code aligned)
-
-## Code Style
-
-Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
-
-## Project Instructions and Rubric
-
-Note: regardless of the changes you make, your project must be buildable using
-cmake and make!
-
-
-## Call for IDE Profiles Pull Requests
-
-Help your fellow students!
-
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to ensure
-that students don't feel pressured to use one IDE or another.
-
-However! I'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Frankly, I've never been involved in a project with multiple IDE profiles
-before. I believe the best way to handle this would be to keep them out of the
-repo root to avoid clutter. My expectation is that most profiles will include
-instructions to copy files to a new location to get picked up by the IDE, but
-that's just a guess.
-
-One last note here: regardless of the IDE used, every submitted project must
-still be compilable with cmake and make./
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
